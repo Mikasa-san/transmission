@@ -1,9 +1,14 @@
 include(UtilityFunctions.cmake)
 
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|x64-arm64)$")
+    set(ARCH arm64)
+    set(TR_OPENSSL_ARCH "-arm64")
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(ARCH x64)
+    set(TR_OPENSSL_ARCH "-x64")
 else()
     set(ARCH x86)
+    set(TR_OPENSSL_ARCH "")
 endif()
 
 set(VERSION "${TR_USER_AGENT_PREFIX}")
