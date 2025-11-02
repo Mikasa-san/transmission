@@ -541,6 +541,7 @@ jobs:
             runner: windows-2022
           - arch: arm64
             runner: windows-11-arm
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Show Configuration
         run: |
