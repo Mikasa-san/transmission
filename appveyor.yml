@@ -15,13 +15,13 @@ environment:
     TR_ARCH: x86
     QT_VERSION: '5'
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
-    TR_ARCH: x86
-    QT_VERSION: '6'
-  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
     TR_ARCH: x64
     QT_VERSION: '5'
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
     TR_ARCH: x64
+    QT_VERSION: '6'
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+    TR_ARCH: x64_arm64
     QT_VERSION: '6'
 
 branches:
