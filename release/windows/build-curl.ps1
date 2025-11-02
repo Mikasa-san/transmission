@@ -40,6 +40,13 @@ function global:Build-Curl([string] $PrefixDir, [string] $Arch, [string] $DepsPr
         '-DCURL_WINDOWS_SSPI=OFF'
         '-DENABLE_MANUAL=OFF'
     )
+    
+    if ($Arch -eq 'x64_arm64' -or $Arch -eq 'arm64') {
+        $ConfigOptions += @(
+        "-DCMAKE_SYSTEM_NAME=Windows"
+        "-DCMAKE_SYSTEM_PROCESSOR=ARM64"
+        )
+    }
 
     Invoke-CMakeBuildAndInstall $SourceDir $BuildDir $ConfigOptions
     Invoke-NativeCommand cmake -E remove_directory (Join-Path $PrefixDir lib cmake CURL) # until we support it
